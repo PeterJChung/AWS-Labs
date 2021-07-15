@@ -3,6 +3,7 @@
 import csv
 import copy
 
+# Define a dictionary to hold our data.
 myVehicle = {
   "vin" : "<empty>",
   "make" : "<empty>" ,
@@ -14,11 +15,14 @@ myVehicle = {
   "mileage" : 0
 }
 
+# Print out the initial key and values.
 for key, value in myVehicle.items():
   print("{} : {}".format(key,value))
 
+# Define an empty list to keep a copy in memory.
 myInventoryList = []
 
+# Read the inventory from the csv file.
 with open('car_fleet.csv') as csvFile:  
   csvReader = csv.reader(csvFile, delimiter=',')  
   lineCount = 0  
@@ -41,6 +45,7 @@ with open('car_fleet.csv') as csvFile:
         lineCount += 1  
   print(f'Processed {lineCount} lines.')  
 
+# Print the inventory from the copy in memory
 for myCarProperties in myInventoryList:
   for key, value in myCarProperties.items():
     print("{} : {}".format(key,value))
